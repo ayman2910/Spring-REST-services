@@ -29,20 +29,11 @@ public class StudentController {
         return students;
     }
     @GetMapping("student/{studentId}")
-    public Student getStudent(@PathVariable int studentId){
+    public Student getStudent(@PathVariable Integer studentId){
         if(studentId <1 || studentId > students.size()){
-            throw new StudentExceptionHandler("Student Id not found - "+studentId);
+            throw new StudentNotFoundException("Student Id not found - "+studentId);
         }
         return students.get(studentId-1);
-    }
-    @ExceptionHandler
-    public ResponseEntity<StudentErrorResponse> handleException(StudentExceptionHandler exc){
-        StudentErrorResponse error = new StudentErrorResponse();
-        error.setStatus(HttpStatus.NOT_FOUND.value());
-        error.setMessage(exc.getMessage());
-        error.setTimestamp(System.currentTimeMillis());
-
-        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
 }
