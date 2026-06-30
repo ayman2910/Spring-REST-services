@@ -20,6 +20,8 @@ public class StudentController {
         students.add(new Student(1,"Hossain","Ayman"));
         students.add(new Student(2,"Suhaila","Obdhi"));
         students.add(new Student(3,"Nigga","Higga"));
+        students.add(new Student(4,"Kylian","Mappe"));
+        students.add(new Student(6,"Erling","Haaland"));
 
         System.out.println("Loading Data");
 
